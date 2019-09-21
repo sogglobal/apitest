@@ -54,6 +54,7 @@ public class ComicsCharactersControllerTest {
 
         for (int i = 0; i < 2; i++) {
             perform.andExpect(jsonPath("$.content[" + i + "]", hasKey("id")));
+            perform.andExpect(jsonPath("$.content[" + i + "].id", equalTo(i + 1)));
             perform.andExpect(jsonPath("$.content[" + i + "]", hasKey("name")));
             perform.andExpect(jsonPath("$.content[" + i + "]", hasKey("description")));
             perform.andExpect(jsonPath("$.content[" + i + "]", hasKey("modified")));
